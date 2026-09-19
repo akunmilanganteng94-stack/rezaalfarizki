@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #050B18;
+    color: #FFFFFF;
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(10, 25, 53, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.glass-modal {
+  background: rgba(9, 20, 42, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 168, 255, 0.28);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 50px -10px rgba(0, 110, 255, 0.35);
+}
+
+/* 3D Extruded Text for REZZA background */
+.text-3d-deep {
+  color: rgba(255, 255, 255, 0.035);
+  text-shadow: 
+    0 1px 0 rgba(0, 110, 255, 0.08),
+    0 2px 0 rgba(0, 110, 255, 0.07),
+    0 4px 0 rgba(0, 110, 255, 0.06),
+    0 6px 0 rgba(0, 110, 255, 0.05),
+    0 8px 12px rgba(0, 168, 255, 0.08),
+    0 15px 35px rgba(0, 110, 255, 0.12);
+  user-select: none;
+  pointer-events: none;
+}
+
+.text-3d-front {
+  color: rgba(255, 255, 255, 0.06);
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.1),
+    0 2px 0 rgba(0, 168, 255, 0.12),
+    0 4px 0 rgba(0, 110, 255, 0.1),
+    0 6px 20px rgba(0, 110, 255, 0.2);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(-0.5deg);
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateSlowReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  40%, 100% {
+    transform: translateX(250%) skewX(-25deg);
+  }
+}
+
+@keyframes scanLaser {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes driftBg1 {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotateX(12deg) rotateY(-8deg) rotateZ(-3deg);
+  }
+  50% {
+    transform: translate3d(3%, 3%, 0) rotateX(8deg) rotateY(-12deg) rotateZ(1deg);
+  }
+  100% {
+    transform: translate3d(-3%, -2%, 0) rotateX(12deg) rotateY(-8deg) rotateZ(-3deg);
+  }
+}
+
+@keyframes driftBg2 {
+  0% {
+    transform: translate3d(2%, 3%, 0) rotateX(-8deg) rotateY(12deg) rotateZ(3deg);
+  }
+  50% {
+    transform: translate3d(-3%, -2%, 0) rotateX(-12deg) rotateY(8deg) rotateZ(-1deg);
+  }
+  100% {
+    transform: translate3d(2%, 3%, 0) rotateX(-8deg) rotateY(12deg) rotateZ(3deg);
+  }
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: rotateSlow 14s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: rotateSlowReverse 18s linear infinite;
+}
+
+.animate-shine {
+  animation: shine 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-scan-laser {
+  animation: scanLaser 3.2s ease-in-out infinite;
+}
+
+.animate-drift-1 {
+  animation: driftBg1 26s ease-in-out infinite;
+}
+
+.animate-drift-2 {
+  animation: driftBg2 32s ease-in-out infinite;
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3.5s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
